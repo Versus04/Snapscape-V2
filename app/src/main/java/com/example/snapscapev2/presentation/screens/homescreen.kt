@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.example.snapscapev2.dto.UnsplashImageDTO
 import com.example.snapscapev2.presentation.viewmodels.ScrollViewModel
+import com.example.snapscapev2.utils.imageCard
 
 @Composable
 fun homescreen(scrollViewModel: ScrollViewModel)
@@ -37,38 +38,6 @@ fun homescreen(scrollViewModel: ScrollViewModel)
        items(imagedto.value)
        { image ->
             imageCard(image)
-
        }
    }
-}
-@Composable
-fun imageCard(unsplashImageDTO: UnsplashImageDTO)
-{
-    Card(Modifier.width(unsplashImageDTO.width.dp)
-        .padding(8.dp)
-    )
-    {
-        Column {
-            Row (verticalAlignment = Alignment.CenterVertically
-                , horizontalArrangement = Arrangement.Center
-            , modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 8.dp)
-            ){
-                AsyncImage(model = unsplashImageDTO.user.profile_image.large
-                    , contentDescription = null,
-                    modifier = Modifier.clip(RoundedCornerShape(16.dp))
-                    )
-                Spacer(Modifier.width(16.dp))
-                Text(text = unsplashImageDTO.user.username)
-            }
-            AsyncImage(model = unsplashImageDTO.urls.raw,
-                contentDescription = null,
-                modifier = Modifier
-                    .padding(top = 8.dp, start = 8.dp, end = 8.dp, bottom = 8.dp)
-                    .clip(RoundedCornerShape(8.dp))
-            )
-        }
-
-    }
 }
