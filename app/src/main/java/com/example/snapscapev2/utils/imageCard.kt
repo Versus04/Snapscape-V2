@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,7 +20,7 @@ import coil3.compose.AsyncImage
 import com.example.snapscapev2.dto.UnsplashImageDTO
 
 @Composable
-fun imageCard(unsplashImageDTO: UnsplashImageDTO)
+fun ImageCard(unsplashImageDTO: UnsplashImageDTO)
 {
     Card(Modifier.width(unsplashImageDTO.width.dp)
         .padding(8.dp)
@@ -37,9 +38,13 @@ fun imageCard(unsplashImageDTO: UnsplashImageDTO)
                     modifier = Modifier.clip(RoundedCornerShape(16.dp))
                 )
                 Spacer(Modifier.width(16.dp))
-                Text(text = unsplashImageDTO.user.username)
+                Text(
+                    text = unsplashImageDTO.user.name,
+                    style = MaterialTheme.typography.titleMedium
+                    )
             }
-            AsyncImage(model = unsplashImageDTO.urls.raw,
+            AsyncImage(
+                model = unsplashImageDTO.urls.raw,
                 contentDescription = null,
                 modifier = Modifier
                     .padding(top = 8.dp, start = 8.dp, end = 8.dp, bottom = 8.dp)

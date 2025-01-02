@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.example.snapscapev2.dto.UnsplashImageDTO
 import com.example.snapscapev2.presentation.viewmodels.ScrollViewModel
-import com.example.snapscapev2.utils.imageCard
+import com.example.snapscapev2.utils.ImageCard
 
 @Composable
 fun homescreen(scrollViewModel: ScrollViewModel)
@@ -37,7 +37,7 @@ fun homescreen(scrollViewModel: ScrollViewModel)
    LazyColumn(Modifier.fillMaxSize().statusBarsPadding()) {
        items(imagedto.value)
        { image ->
-            imageCard(image)
+           ImageCard(image)
        }
    }
 }
