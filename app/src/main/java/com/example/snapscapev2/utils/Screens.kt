@@ -12,7 +12,12 @@ sealed class Screens {
     data object Random : Screens()
     @Serializable
     data class ProfilePage(val username : String,
-        val url : String
+        val url : String,
+        val totalphotos : Int ,
+        val collections : Int ,
+        val totallikes: Int,
+        val name : String ,
+        val bio : String
         ) : Screens()
     @Serializable
     data object DetailsPage : Screens()

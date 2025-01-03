@@ -47,7 +47,12 @@ fun homescreen(scrollViewModel: ScrollViewModel,modifier: Modifier , navControll
                    navController
                        .navigate(Screens.ProfilePage(
                            username = image.user.username,
-                           url = image.user.profile_image.large
+                           url = image.user.profile_image.large,
+                           totalphotos = image.user.total_photos,
+                           collections = image.user.total_collections,
+                           totallikes = image.user.total_likes,
+                           name = (image.user.first_name) + " " + (image.user.last_name) ?: " ",
+                           bio = image.user.bio
                        )) })
        }
    }
