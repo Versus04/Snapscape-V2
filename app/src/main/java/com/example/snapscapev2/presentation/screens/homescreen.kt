@@ -23,21 +23,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 import coil3.compose.AsyncImage
 import com.example.snapscapev2.dto.UnsplashImageDTO
 import com.example.snapscapev2.presentation.viewmodels.ScrollViewModel
 import com.example.snapscapev2.utils.ImageCard
+import com.example.snapscapev2.utils.Screens
 
 @Composable
-fun homescreen(scrollViewModel: ScrollViewModel,modifier: Modifier)
+fun homescreen(scrollViewModel: ScrollViewModel,modifier: Modifier , navController: NavController)
 {
     val imagedto = scrollViewModel.imageDto.collectAsState()
 
    LazyColumn(Modifier.fillMaxSize().statusBarsPadding()) {
        items(imagedto.value)
        { image ->
-           ImageCard(image)
+           ImageCard(image, navController.navigate(Screens.ProfilePage(username = image.user.)))
        }
    }
 }

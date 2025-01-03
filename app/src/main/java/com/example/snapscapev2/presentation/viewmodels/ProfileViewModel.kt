@@ -15,9 +15,9 @@ class ProfileViewModel: ViewModel()
     val userImages : StateFlow<List<UnsplashImageDTO>> = _userImages.asStateFlow()
     private val _username = MutableStateFlow("")
     val username : StateFlow<String> = _username.asStateFlow()
-    fun updateusername(username : String)
+    fun updateusername(name : String)
     {
-
+        _username.value = name
     }
     fun getuserPhotos()
     {

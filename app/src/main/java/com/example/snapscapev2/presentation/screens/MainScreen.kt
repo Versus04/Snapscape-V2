@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.example.snapscapev2.presentation.viewmodels.ScrollViewModel
 import com.example.snapscapev2.utils.Screens
 
@@ -21,6 +22,11 @@ fun MainScreen(scrollViewModel: ScrollViewModel)
             composable<Screens.Home>
             {
                 homescreen(scrollViewModel = scrollViewModel , modifier = Modifier.padding(innerPadding))
+            }
+            composable<Screens.ProfilePage>
+            {
+                val curr = it.toRoute<Screens.ProfilePage>()
+                ProfileScreen(curr)
             }
         }
 
