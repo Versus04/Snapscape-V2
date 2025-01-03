@@ -20,9 +20,9 @@ fun MainScreen(scrollViewModel: ScrollViewModel)
         {
             composable<Screens.Home>
             {
-                homescreen(scrollViewModel = scrollViewModel)
+                homescreen(scrollViewModel = scrollViewModel , modifier = Modifier.padding(innerPadding))
             }
         }
-        Text("", modifier = Modifier.padding(innerPadding))
+
     }
 }

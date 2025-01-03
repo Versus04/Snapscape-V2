@@ -30,7 +30,7 @@ import com.example.snapscapev2.presentation.viewmodels.ScrollViewModel
 import com.example.snapscapev2.utils.ImageCard
 
 @Composable
-fun homescreen(scrollViewModel: ScrollViewModel)
+fun homescreen(scrollViewModel: ScrollViewModel,modifier: Modifier)
 {
     val imagedto = scrollViewModel.imageDto.collectAsState()
 

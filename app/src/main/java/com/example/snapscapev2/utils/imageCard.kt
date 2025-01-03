@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,12 +23,14 @@ import com.example.snapscapev2.dto.UnsplashImageDTO
 @Composable
 fun ImageCard(unsplashImageDTO: UnsplashImageDTO)
 {
-    Card(Modifier.width(unsplashImageDTO.width.dp)
+    Card(colors = CardDefaults.cardColors(),
+        modifier = Modifier.width(unsplashImageDTO.width.dp)
         .padding(8.dp)
     )
     {
         Column {
-            Row (verticalAlignment = Alignment.CenterVertically
+            Row (
+                verticalAlignment = Alignment.CenterVertically
                 , horizontalArrangement = Arrangement.Center
                 , modifier = Modifier
                     .fillMaxSize()
