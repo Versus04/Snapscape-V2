@@ -1,5 +1,6 @@
 package com.example.snapscapev2.presentation.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.snapscapev2.api.unsplashservice
@@ -28,5 +29,6 @@ class ProfileViewModel: ViewModel()
                 _userImages.value = photos
             }
         }
+        Log.d("userlist" , _userImages.value.toString())
     }
 }

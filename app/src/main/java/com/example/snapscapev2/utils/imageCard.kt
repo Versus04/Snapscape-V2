@@ -1,5 +1,6 @@
 package com.example.snapscapev2.utils
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,10 +22,10 @@ import coil3.compose.AsyncImage
 import com.example.snapscapev2.dto.UnsplashImageDTO
 
 @Composable
-fun ImageCard(unsplashImageDTO: UnsplashImageDTO)
+fun ImageCard(unsplashImageDTO: UnsplashImageDTO , onclick: ()-> Unit)
 {
     Card(colors = CardDefaults.cardColors(),
-        modifier = Modifier.width(unsplashImageDTO.width.dp)
+        modifier = Modifier.width(unsplashImageDTO.width.dp).clickable(onClick = onclick)
         .padding(8.dp)
     )
     {

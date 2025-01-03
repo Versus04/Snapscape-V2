@@ -36,10 +36,19 @@ fun homescreen(scrollViewModel: ScrollViewModel,modifier: Modifier , navControll
 {
     val imagedto = scrollViewModel.imageDto.collectAsState()
 
-   LazyColumn(Modifier.fillMaxSize().statusBarsPadding()) {
+   LazyColumn(
+       Modifier
+           .fillMaxSize()
+           .statusBarsPadding()) {
        items(imagedto.value)
        { image ->
-           ImageCard(image, navController.navigate(Screens.ProfilePage(username = image.user.)))
+           ImageCard(image,
+               {
+                   navController
+                       .navigate(Screens.ProfilePage(
+                           username = image.user.username,
+                           url = image.user.profile_image.large
+                       )) })
        }
    }
 }

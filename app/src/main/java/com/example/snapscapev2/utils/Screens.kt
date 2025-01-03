@@ -11,7 +11,9 @@ sealed class Screens {
     @Serializable
     data object Random : Screens()
     @Serializable
-    data class ProfilePage(val username : String) : Screens()
+    data class ProfilePage(val username : String,
+        val url : String
+        ) : Screens()
     @Serializable
     data object DetailsPage : Screens()
 }
