@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -56,12 +57,11 @@ fun ImagePage(url: Screens.imagePage, navController: NavController) {
             AsyncImage(
                 model = url.url,
                 contentDescription = "Full screen image",
-                contentScale = ContentScale.Fit,
-                modifier = Modifier.fillMaxSize(),
                 onLoading = {
 
                 }
             )
         }
+
     }
 }
