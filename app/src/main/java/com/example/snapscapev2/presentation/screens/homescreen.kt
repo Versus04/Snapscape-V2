@@ -44,8 +44,8 @@ fun homescreen(scrollViewModel: ScrollViewModel,modifier: Modifier , navControll
        { image ->
            ImageCard(image,
                {
-                   navController
-                       .navigate(Screens.ProfilePage(
+                   navController.navigate(Screens.imagePage(url = image.urls.raw))
+                       /*.navigate(Screens.ProfilePage(
                            username = image.user.username,
                            url = image.user.profile_image.large,
                            totalphotos = image.user.total_photos,
@@ -53,7 +53,8 @@ fun homescreen(scrollViewModel: ScrollViewModel,modifier: Modifier , navControll
                            totallikes = image.user.total_likes,
                            name = (image.user.first_name) + " " + (image.user.last_name) ?: " ",
                            bio = image.user.bio
-                       )) })
+                       )
+                       )*/ })
        }
    }
 }

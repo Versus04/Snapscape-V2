@@ -21,4 +21,7 @@ sealed class Screens {
         ) : Screens()
     @Serializable
     data object DetailsPage : Screens()
+
+    @Serializable
+    data class imagePage(val url : String) : Screens()
 }

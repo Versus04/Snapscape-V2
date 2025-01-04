@@ -31,6 +31,11 @@ fun MainScreen(scrollViewModel: ScrollViewModel , profileViewModel: ProfileViewM
                 val curr = it.toRoute<Screens.ProfilePage>()
                 ProfileScreen(curr , profileViewModel)
             }
+            composable<Screens.imagePage>
+            {
+                val curr = it.toRoute<Screens.imagePage>()
+                ImagePage(curr)
+            }
         }
 
     }
