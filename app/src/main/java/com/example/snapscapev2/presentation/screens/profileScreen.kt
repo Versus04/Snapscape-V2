@@ -1,5 +1,6 @@
 package com.example.snapscapev2.presentation.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,13 +25,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import coil3.compose.AsyncImage
 import com.example.snapscapev2.dto.UnsplashImageDTO
 import com.example.snapscapev2.presentation.viewmodels.ProfileViewModel
 import com.example.snapscapev2.utils.Screens
 
 @Composable
-fun ProfileScreen(details : Screens.ProfilePage , profileViewModel: ProfileViewModel)
+fun ProfileScreen(details : Screens.ProfilePage , profileViewModel: ProfileViewModel , navController: NavController)
 {
     val posts = profileViewModel.userImages.collectAsState()
     profileViewModel.updateusername(details.username)
@@ -41,13 +43,18 @@ fun ProfileScreen(details : Screens.ProfilePage , profileViewModel: ProfileViewM
             .systemBarsPadding())
     {
 
-            Column(modifier = Modifier.fillMaxWidth().padding(16.dp),
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically ,
                     horizontalArrangement = Arrangement.SpaceEvenly , modifier = Modifier.fillMaxWidth()) {
                     AsyncImage(model = details.url,
                         contentDescription = null,
-                        modifier = Modifier.height(100.dp).width(100.dp).clip(RoundedCornerShape(64.dp))
+                        modifier = Modifier
+                            .height(100.dp)
+                            .width(100.dp)
+                            .clip(RoundedCornerShape(64.dp))
 
                     )
                     content(details.totalphotos,"Photos")
@@ -65,18 +72,24 @@ fun ProfileScreen(details : Screens.ProfilePage , profileViewModel: ProfileViewM
         {
       items(posts.value)
       { post ->
-            images(post)
+            images(post , navController)
 
       }
     }
 }}
 @Composable
-fun images(post: UnsplashImageDTO)
+fun images(post: UnsplashImageDTO , navController: NavController)
 {
     AsyncImage(model = post.urls.regular ,
         contentDescription = null,
         contentScale = ContentScale.Crop,
-        modifier = Modifier.padding(start = 8.dp,end=8.dp , bottom = 8.dp).width(post.width.dp).clip(RoundedCornerShape(8.dp))
+        modifier = Modifier
+            .clickable(onClick = { navController.navigate(Screens.imagePage(url = post.urls.raw)) })
+            .padding(start = 8.dp, end = 8.dp, bottom = 8.dp)
+            .width(post.width.dp)
+            .clip(RoundedCornerShape(8.dp))
+
+
     )
 }
 @Composable

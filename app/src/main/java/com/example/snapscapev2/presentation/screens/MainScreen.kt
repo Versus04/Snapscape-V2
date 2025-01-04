@@ -29,12 +29,12 @@ fun MainScreen(scrollViewModel: ScrollViewModel , profileViewModel: ProfileViewM
             composable<Screens.ProfilePage>
             {
                 val curr = it.toRoute<Screens.ProfilePage>()
-                ProfileScreen(curr , profileViewModel)
+                ProfileScreen(curr , profileViewModel , navController)
             }
             composable<Screens.imagePage>
             {
                 val curr = it.toRoute<Screens.imagePage>()
-                ImagePage(curr)
+                ImagePage(curr,navController)
             }
         }
 
