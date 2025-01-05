@@ -22,9 +22,11 @@ fun MainScreen(scrollViewModel: ScrollViewModel , profileViewModel: ProfileViewM
         {
             composable<Screens.Home>
             {
-                homescreen(scrollViewModel = scrollViewModel ,
+                homescreen(
+                    scrollViewModel = scrollViewModel,
                     modifier = Modifier.padding(innerPadding),
-                    navController)
+                    navController = navController
+                )
             }
             composable<Screens.ProfilePage>
             {

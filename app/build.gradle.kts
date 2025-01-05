@@ -42,7 +42,10 @@ android {
 }
 
 dependencies {
+    val paging_version = "3.3.5"
 
+    implementation("androidx.paging:paging-runtime:$paging_version")
+    implementation("androidx.paging:paging-compose:3.3.5")
     //Navigation
     implementation(libs.androidx.navigation.compose)
     //Retrofit

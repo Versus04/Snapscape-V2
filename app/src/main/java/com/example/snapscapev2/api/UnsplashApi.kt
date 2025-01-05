@@ -14,7 +14,9 @@ private const val BASE_URL = "https://api.unsplash.com/"
 interface UnsplashApi {
     @Headers("Authorization: Client-ID ${CONSTANTS.apiKey}")
     @GET("photos")
-    suspend fun getPhotos() : Response<List<UnsplashImageDTO>>
+    suspend fun getPhotos(
+        @Query("page") page : Int =1
+    ) : Response<List<UnsplashImageDTO>>
 
     @Headers("Authorization: Client-ID ${CONSTANTS.apiKey}")
     @GET("users/{username}/photos")
